@@ -7,13 +7,18 @@ namespace Bai01
 	{
 		static void Main(string[] args)
 		{
-			Person P = new Person();
 			Person p = new Person(1001, "Quynh", 24, "Ha Noi");
-			P.setID(1001);
-			P.setName("Quynh");
-			P.setAge(24);
-			P.setAddress("Ha Noi");
+			WriteLine("ID: " + p.getID());
+			WriteLine("Name: " + p.getName());
+			WriteLine("Age: " + p.getAge());
+			WriteLine("Address: " + p.getAddress());
 
+			WriteLine("\n");
+
+			p.setID(1002);
+			p.setName("Duyen");
+			p.setAge(22);
+			p.setAddress("An Giang");
 			WriteLine("ID: " + p.getID());
 			WriteLine("Name: " + p.getName());
 			WriteLine("Age: " + p.getAge());
