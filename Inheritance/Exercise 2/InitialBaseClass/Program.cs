@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 
 namespace InitialBaseClass
 {
@@ -6,7 +7,8 @@ namespace InitialBaseClass
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			Table table = new Table(13, 43);
+			table.Display();
 		}
 	}
 }
