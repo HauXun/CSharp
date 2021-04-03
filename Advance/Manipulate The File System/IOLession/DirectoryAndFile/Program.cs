@@ -13,10 +13,10 @@ namespace DirectoryAndFile
 			{
 				FileInfo[] files = myDir.GetFiles();
 				DirectoryInfo[] dfiles = myDir.GetDirectories();
-				//foreach (FileInfo file in files)
-				//{
-				//	WriteLine(file.FullName);
-				//}
+				foreach (FileInfo file in files)
+				{
+					WriteLine(file.FullName);
+				}
 				WriteLine("\n");
 				foreach (DirectoryInfo file in dfiles)
 				{
