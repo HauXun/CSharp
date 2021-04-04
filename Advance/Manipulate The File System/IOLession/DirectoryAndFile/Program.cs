@@ -24,9 +24,7 @@ namespace DirectoryAndFile
 				}
 			}
 			else
-			{
 				WriteLine("Directory is not existed");
-			}
 		}
 	}
 }
