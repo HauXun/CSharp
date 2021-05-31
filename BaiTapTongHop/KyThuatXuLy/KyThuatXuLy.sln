@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextDoiXung", "TextDoiXung\TextDoiXung.csproj", "{DB6BB7C5-9A27-444E-8EEB-BE628BFBAC83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hint", "Hint\Hint.csproj", "{07B25619-33F4-4DDB-9B61-5F537213DF29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB6BB7C5-9A27-444E-8EEB-BE628BFBAC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB6BB7C5-9A27-444E-8EEB-BE628BFBAC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB6BB7C5-9A27-444E-8EEB-BE628BFBAC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB6BB7C5-9A27-444E-8EEB-BE628BFBAC83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07B25619-33F4-4DDB-9B61-5F537213DF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07B25619-33F4-4DDB-9B61-5F537213DF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07B25619-33F4-4DDB-9B61-5F537213DF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07B25619-33F4-4DDB-9B61-5F537213DF29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A7A6CAB-06F2-4C0D-983A-C587ACD6644E}
+	EndGlobalSection
+EndGlobal
