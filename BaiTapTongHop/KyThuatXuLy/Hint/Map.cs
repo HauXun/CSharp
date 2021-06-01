@@ -44,7 +44,7 @@ namespace Hint
 
 			for (int i = MinPoint.X; i <= MaxPoint.X; i++)
 			{
-				SetCursorPosition(i, MaxPoint.Y);
+				SetCursorPosition(i, MaxPoint.Y - 1);
 				Write('-');
 			}
 		}	
