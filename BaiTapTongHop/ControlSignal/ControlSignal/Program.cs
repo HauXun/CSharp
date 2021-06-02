@@ -2,7 +2,7 @@
 using System.Text;
 using static System.Console;
 
-namespace Hint
+namespace ControlSignal
 {
 	class Program
 	{

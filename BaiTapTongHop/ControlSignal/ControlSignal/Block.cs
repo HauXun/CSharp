@@ -1,14 +1,13 @@
 ﻿using System;
+using static System.ConsoleKey;
 using static System.Console;
 
-namespace Hint
+namespace ControlSignal
 {
-	class Coin
+	class Block
 	{
-		const string coinChar = "Ȼ";
-		private int huongDuyChuyen = 0;     // 0: <-; 1: ^; 2: ->; 3: V
-		private int coinSpeed;
-		private bool isGotten;
+		const int birdWeidth = 3;
+		const int birdHeight = 3;
 
 		private Point currentPoint;
 		private Point minPoint;
@@ -18,59 +17,52 @@ namespace Hint
 		internal Point MinPoint { get => minPoint; set => minPoint = value; }
 		internal Point MaxPoint { get => maxPoint; set => maxPoint = value; }
 
-		public bool IsGotten { get => isGotten; set => isGotten = value; }
-		public int CoinSpeed { get => coinSpeed; set => coinSpeed = value; }
+		public int BirdWeidth => birdWeidth;
+		public int BirdHeight => birdHeight;
 
-		public Coin(Point minPoint, Point maxPoint)
+		public Block(Point minPoint, Point maxPoint)
 		{
 			MinPoint = minPoint;
 			MaxPoint = maxPoint;
-			IsGotten = true;
-			CoinSpeed = 1000;
 		}
 
-		public void VeCoin(Point point)
+		public void Ve(Point point)
 		{
-			if (currentPoint != null && !IsGotten)
-				XoaCoin();
+			if (currentPoint != null)
+				Xoa();
 			currentPoint = new Point(point);
 			SetCursorPosition(point.X, point.Y);
-			Write(coinChar);
-			Cursor.ReturnCursor(new Point(0, 0));
-		}
-
-		private void XoaCoin()
-		{
-			Point point = new Point(currentPoint);
+			Write("===");
+			point.Y++;
 			SetCursorPosition(point.X, point.Y);
-			Write(" ");
+			Write("===");
+			point.Y++;
+			SetCursorPosition(point.X, point.Y);
+			Write("===");
 			Cursor.ReturnCursor(new Point(0, 0));
 		}
 
-		public void Moverment()
+		private void Xoa()
 		{
-			// Đổi hướng di chuyển
-			Random random = new Random();
-
-			bool isMove = random.Next(0, 5) % 5 == 0 ? true : false;
-
-			if (isMove)
-			{
-				huongDuyChuyen = random.Next(0, 4);		// [0, 3]
-			}
-
-			Move();
+			Point tempPoint = new Point(currentPoint);
+			SetCursorPosition(tempPoint.X, tempPoint.Y);
+			Write("   ");
+			tempPoint.Y++;
+			SetCursorPosition(tempPoint.X, tempPoint.Y);
+			Write("   ");
+			tempPoint.Y++;
+			SetCursorPosition(tempPoint.X, tempPoint.Y);
+			Write("   ");
+			Cursor.ReturnCursor(new Point(0, 0));
 		}
 
-		private void Move()
+		public void Moverment(ConsoleKey key)
 		{
-			if (currentPoint == null)
-				return;
 			Point newPoint = new Point(currentPoint);
 			bool isMove = true;
-			switch (huongDuyChuyen)
+			switch (key)
 			{
-				case 0:     // <-
+				case LeftArrow:     // <-
 					if (--newPoint.X - 1 < minPoint.X + 1)
 					{
 						isMove = false;
@@ -81,8 +73,8 @@ namespace Hint
 						isMove = true;
 					}
 					break;
-				case 2:     // ^
-					if (++newPoint.X > maxPoint.X - 2)
+				case RightArrow:     // ->
+					if (++newPoint.X + birdHeight > maxPoint.X - 1)
 					{
 						isMove = false;
 					}
@@ -92,8 +84,8 @@ namespace Hint
 						isMove = true;
 					}
 					break;
-				case 1:     // ->
-					if (--newPoint.Y - 1 < minPoint.Y)
+				case UpArrow:     // <-
+					if (--newPoint.Y < minPoint.Y + 1)
 					{
 						isMove = false;
 					}
@@ -103,8 +95,8 @@ namespace Hint
 						isMove = true;
 					}
 					break;
-				case 3:     // V
-					if (++newPoint.Y + 1 > maxPoint.Y - 1)
+				case DownArrow:     // <-
+					if (++newPoint.Y + birdHeight > maxPoint.Y - 1)
 					{
 						isMove = false;
 					}
@@ -119,7 +111,7 @@ namespace Hint
 					break;
 			}
 			if (isMove)
-				VeCoin(newPoint);
+				Ve(newPoint);
 		}
 	}
 }

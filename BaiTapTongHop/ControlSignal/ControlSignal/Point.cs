@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hint
+namespace ControlSignal
 {
 	class Point
 	{

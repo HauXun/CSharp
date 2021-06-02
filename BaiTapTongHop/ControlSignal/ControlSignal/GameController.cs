@@ -1,7 +1,7 @@
 ﻿using System;
 using static System.Console;
 
-namespace Hint
+namespace ControlSignal
 {
 	class GameController
 	{
@@ -23,8 +23,8 @@ namespace Hint
 			Map map = new Map(minPoint, maxPoint);
 			map.DrawMap();
 
-			Bird bird = new Bird(minPoint, maxPoint);
-			bird.Ve(point);
+			Block block = new Block(minPoint, maxPoint);
+			block.Ve(point);
 
 			Coin coin = new Coin(minPoint, maxPoint);
 
@@ -40,13 +40,13 @@ namespace Hint
 				if (KeyAvailable)       // Nếu người dùng nhấn phím
 				{
 					ConsoleKeyInfo key = ReadKey();
-					bird.Moverment(key.Key);
+					block.Moverment(key.Key);
 				}
 
-				if (isTrigger(bird, coin) && !coin.IsGotten)
+				if (isTrigger(block, coin) && !coin.IsGotten)
 				{
-					Point newPoint = new Point(bird.CurrentPoint);
-					bird.Ve(newPoint);
+					Point newPoint = new Point(block.CurrentPoint);
+					block.Ve(newPoint);
 					coin.IsGotten = true;
 					minPointCoin = random.Next(minPoint.X + 2, maxPoint.X - 2);
 					maxpointCoin = random.Next(minPoint.Y + 2, maxPoint.Y - 2);
@@ -82,16 +82,16 @@ namespace Hint
 			Cursor.ReturnCursor(new Point(0, 0));
 		}
 
-		private bool isTrigger(Bird bird, Coin coin)
+		private bool isTrigger(Block block, Coin coin)
 		{
-			if (bird != null && coin != null && coin.CurrentPoint != null)
+			if (block != null && coin != null && coin.CurrentPoint != null)
 			{
 				Point cointPoint = coin.CurrentPoint;
-				Point birdPoint = bird.CurrentPoint;
+				Point birdPoint = block.CurrentPoint;
 				if (cointPoint.X >= birdPoint.X
-					&& cointPoint.X < birdPoint.X + bird.BirdWeidth
+					&& cointPoint.X < birdPoint.X + block.BirdWeidth
 					&& cointPoint.Y >= birdPoint.Y
-					&& cointPoint.Y < birdPoint.Y + bird.BirdHeight)
+					&& cointPoint.Y < birdPoint.Y + block.BirdHeight)
 				{
 					return true;
 				}

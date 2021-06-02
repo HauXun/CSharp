@@ -1,11 +1,10 @@
 ﻿using System;
 using static System.Console;
 
-namespace Hint
+namespace ControlSignal
 {
 	class Map
 	{
-
 		private Point minPoint;
 		private Point maxPoint;
 
@@ -47,6 +46,6 @@ namespace Hint
 				SetCursorPosition(i, MaxPoint.Y - 1);
 				Write('-');
 			}
-		}	
+		}
 	}
 }
